@@ -7,8 +7,12 @@ import repositories.CommentRepository;
 @Service
 public class CommentService {
 
-    @Autowired
-    private CommentRepository commentRepository;
+    // making the field final highlights that this field was intended not to be changed
+    private final CommentRepository commentRepository;
+
+    public CommentService(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
+    }
 
     public CommentRepository getCommentRepository() {
         return commentRepository;
